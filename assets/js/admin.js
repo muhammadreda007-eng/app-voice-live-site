@@ -88,10 +88,22 @@
     const table = document.getElementById("adminNewsTable");
     const form = document.querySelector("[data-admin-news-form]");
     if (!table || !form) return;
+    const previewLink = form.querySelector("[data-preview-news]");
+    function updatePreviewLink() {
+      if (!previewLink) return;
+      const slug = form.elements.slug.value.trim() || slugify(form.elements.title_ar.value);
+      previewLink.href = slug ? "../news-details.html?slug=" + encodeURIComponent(slug) : "../news.html";
+    }
     form.elements.title_ar.addEventListener("input", () => {
       if (!form.elements.slug.value) form.elements.slug.value = slugify(form.elements.title_ar.value);
+      updatePreviewLink();
     });
-    form.querySelector("[data-clear-news]")?.addEventListener("click", () => form.reset());
+    form.elements.slug.addEventListener("input", updatePreviewLink);
+    form.querySelector("[data-clear-news]")?.addEventListener("click", () => {
+      form.reset();
+      updatePreviewLink();
+    });
+    updatePreviewLink();
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!window.AppSupabase.isConfigured()) {
@@ -119,6 +131,7 @@
         await AppApi.adminUpsert("news", payload, "id");
         alert("تم حفظ الخبر.", "success");
         form.reset();
+        updatePreviewLink();
         await loadNewsAdmin();
       } catch (_) {
         alert("تعذر حفظ الخبر. راجع الصلاحيات والإعدادات.", "error");
@@ -135,6 +148,7 @@
         Object.keys(form.elements).forEach((key) => {
           if (item[key] !== undefined && form.elements[key]) form.elements[key].value = item[key] || "";
         });
+        updatePreviewLink();
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       const del = el("button", "btn btn-quiet", "حذف");
@@ -144,7 +158,11 @@
         await AppApi.adminDelete("news", item.id);
         await loadNewsAdmin();
       });
-      actions.append(edit, del);
+      const view = el("a", "btn btn-quiet", "معاينة");
+      view.href = item.slug ? "../news-details.html?slug=" + encodeURIComponent(item.slug) : "../news.html";
+      view.target = "_blank";
+      view.rel = "noopener";
+      actions.append(edit, view, del);
       tr.append(actions);
       return tr;
     }) : [emptyRow("لا توجد أخبار بعد.", 4)]));

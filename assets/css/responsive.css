@@ -1,5 +1,5 @@
 @media (max-width: 1080px) {
-  .feature-grid, .pricing-grid, .news-grid, .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-grid, .pricing-grid, .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { min-height: auto; }
   .phone-shell { min-height: 560px; }
@@ -12,6 +12,10 @@
   .header-actions .download-action { display: none; }
   .page-hero-grid, .split-grid, .download-panel, .footer-grid { grid-template-columns: 1fr; }
   .section-head { display: grid; align-items: start; }
+  .news-card { grid-template-columns: 1fr; }
+  .news-card-image { grid-row: auto; min-height: auto; aspect-ratio: 16 / 9; border-inline-end: 0; border-bottom: 1px solid rgba(220, 228, 238, 0.95); }
+  .news-card .article-meta { padding: 24px 24px 0; }
+  .news-card a { padding: 12px 24px 28px; }
 }
 @media (max-width: 640px) {
   :root { --section: 64px; }

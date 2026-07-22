@@ -20,9 +20,16 @@
   }
 
   function renderNewsCard(item) {
-    const card = el("article", "news-card reveal");
+    const card = el("article", "news-card");
     const title = textFor(item, "title_ar", "title_en");
     const excerpt = textFor(item, "excerpt_ar", "excerpt_en");
+    if (item.cover_image_url) {
+      const image = el("img", "news-card-image");
+      image.src = item.cover_image_url;
+      image.alt = title || "";
+      image.loading = "lazy";
+      card.append(image);
+    }
     const link = el("a");
     link.href = "news-details.html?slug=" + encodeURIComponent(item.slug);
     link.append(el("h3", "", title));
@@ -69,7 +76,16 @@
       const meta = el("p", "article-meta", dateText(item.published_at));
       const content = el("div", "article-content");
       String(textFor(item, "content_ar", "content_en") || "").split(/\n+/).filter(Boolean).forEach((para) => content.append(el("p", "", para)));
-      mount.replaceChildren(title, meta, content);
+      const nodes = [title, meta];
+      if (item.cover_image_url) {
+        const image = el("img", "article-cover");
+        image.src = item.cover_image_url;
+        image.alt = title.textContent || "";
+        image.loading = "eager";
+        nodes.push(image);
+      }
+      nodes.push(content);
+      mount.replaceChildren(...nodes);
       document.title = title.textContent + " | APP_NAME";
     } catch (_) {
       mount.replaceChildren(el("p", "empty-state", "تعذر تحميل تفاصيل الخبر."));
