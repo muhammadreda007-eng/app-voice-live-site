@@ -29,7 +29,7 @@
   }
 
   function validate(form) {
-    if (value(form, "website")) return "تعذر إرسال النموذج.";
+    if (value(form, "hp_token")) return "تعذر إرسال النموذج.";
     const started = Number(value(form, "started_at"));
     if (started && Date.now() - started < minSubmitMs) return "انتظر لحظة ثم حاول الإرسال مرة أخرى.";
     if (!form.checkValidity()) {
