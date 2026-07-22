@@ -65,7 +65,7 @@
     const messages = await safeAdmin(() => AppApi.adminList("contact_messages", { orderBy: "created_at", limit: 5 })) || [];
     document.getElementById("recentMessages")?.replaceChildren(...(messages.length ? messages.map((m) => listItem(m.full_name || m.email, m.subject || m.message, m.created_at)) : [el("p", "empty-state", "لا توجد رسائل بعد.")]));
     const waitlist = await safeAdmin(() => AppApi.adminList("waitlist", { orderBy: "created_at", limit: 5 })) || [];
-    document.getElementById("recentWaitlist")?.replaceChildren(...(waitlist.length ? waitlist.map((m) => listItem(m.full_name, m.email, m.created_at)) : [el("p", "empty-state", "لا توجد بيانات بعد.")]));
+    document.getElementById("recentWaitlist")?.replaceChildren(...(waitlist.length ? waitlist.map((m) => listItem(m.full_name, [m.email, m.phone].filter(Boolean).join(" • "), m.created_at)) : [el("p", "empty-state", "لا توجد بيانات بعد.")]));
   }
 
   function listItem(title, sub, date) {
@@ -189,10 +189,10 @@
     async function refresh() {
       cache = await safeAdmin(() => AppApi.adminList("waitlist", { orderBy: "created_at", status: status.value || undefined })) || [];
       const term = (search.value || "").toLowerCase();
-      const rows = cache.filter((item) => !term || ((item.full_name || "") + " " + (item.email || "")).toLowerCase().includes(term));
+      const rows = cache.filter((item) => !term || ((item.full_name || "") + " " + (item.email || "") + " " + (item.phone || "")).toLowerCase().includes(term));
       table.replaceChildren(...(rows.length ? rows.map((item) => {
         const tr = document.createElement("tr");
-        [item.full_name, item.email, item.platform, item.status, item.created_at].forEach((value) => tr.append(el("td", "", value ? String(value).slice(0, 80) : "-")));
+        [item.full_name, item.email, item.phone, item.platform, item.status, item.created_at].forEach((value) => tr.append(el("td", "", value ? String(value).slice(0, 80) : "-")));
         const actions = el("td");
         ["contacted", "invited"].forEach((next) => {
           const btn = el("button", "btn btn-quiet", next === "contacted" ? "تم التواصل" : "دعوة");
@@ -202,7 +202,7 @@
         });
         tr.append(actions);
         return tr;
-      }) : [emptyRow("لا توجد بيانات.", 6)]));
+      }) : [emptyRow("لا توجد بيانات.", 7)]));
     }
     document.getElementById("exportWaitlist")?.addEventListener("click", () => {
       const csvRows = cache.map((r) => [r.full_name, r.email, r.phone, r.platform, r.status, r.created_at].map((v) => '"' + String(v || "").replaceAll('"', '""') + '"').join(","));

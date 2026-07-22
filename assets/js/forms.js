@@ -17,6 +17,17 @@
     alert.className = "form-alert is-" + (type || "warning");
   }
 
+  function normalizePhone(phone) {
+    return String(phone || "")
+      .trim()
+      .replace(/[()\s.-]/g, "")
+      .replace(/^00/, "+");
+  }
+
+  function isInternationalPhone(phone) {
+    return /^\+[1-9][0-9]{7,14}$/.test(phone);
+  }
+
   function validate(form) {
     if (value(form, "website")) return "تعذر إرسال النموذج.";
     const started = Number(value(form, "started_at"));
@@ -24,6 +35,11 @@
     if (!form.checkValidity()) {
       form.reportValidity();
       return "راجع الحقول المطلوبة.";
+    }
+    if (form.dataset.form === "waitlist") {
+      const phone = normalizePhone(value(form, "phone"));
+      if (!isInternationalPhone(phone)) return "اكتب رقم الهاتف بصيغة دولية صحيحة مثل +201234567890.";
+      form.elements.phone.value = phone;
     }
     return "";
   }
@@ -36,7 +52,7 @@
         data: {
           full_name: value(form, "full_name"),
           email: value(form, "email").toLowerCase(),
-          phone: value(form, "phone") || null,
+          phone: normalizePhone(value(form, "phone")),
           platform: value(form, "platform"),
           consent: value(form, "consent"),
           status: "new"

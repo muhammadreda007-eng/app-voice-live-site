@@ -49,7 +49,7 @@ create table if not exists public.waitlist (
   id uuid primary key default gen_random_uuid(),
   full_name text not null check (char_length(trim(full_name)) between 2 and 120),
   email text not null check (email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'),
-  phone text check (phone is null or char_length(trim(phone)) between 7 and 30),
+  phone text not null check (phone ~ '^\+[1-9][0-9]{7,14}$'),
   platform text not null check (platform in ('android', 'ios')),
   consent boolean not null check (consent = true),
   status text not null default 'new' check (status in ('new', 'contacted', 'invited', 'closed')),
