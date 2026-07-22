@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إدارة الأخبار | APP_NAME</title>
+  <meta name="description" content="إدارة الأخبار | لوحة إدارة APP_NAME">
+  <meta name="theme-color" content="#00a99d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="APP_NAME">
+  <meta property="og:title" content="إدارة الأخبار | APP_NAME">
+  <meta property="og:description" content="إدارة الأخبار | لوحة إدارة APP_NAME">
+  <meta property="og:image" content="https://example.com/assets/images/brand/social-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body data-page="admin" data-admin-page="news" data-prefix="../" data-admin-protected="true">
+  <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="admin-main">
+    <section class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar"></aside>
+      <div class="admin-content" data-admin-content>
+        <div class="admin-title-row"><div><p class="eyebrow">News</p><h1>إدارة الأخبار</h1></div><button class="btn btn-secondary" data-logout>تسجيل الخروج</button></div>
+        <div class="setup-notice" data-admin-setup hidden></div>
+        <section class="admin-card">
+          <h2>إضافة أو تعديل خبر</h2>
+          <form class="admin-form-grid" data-admin-news-form>
+            <input type="hidden" name="id">
+            <label class="field"><span>العنوان العربي</span><input name="title_ar" required></label>
+            <label class="field"><span>English title</span><input name="title_en" required dir="ltr"></label>
+            <label class="field"><span>Slug</span><input name="slug" required dir="ltr"></label>
+            <label class="field"><span>الحالة</span><select name="status"><option value="draft">مسودة</option><option value="published">منشور</option></select></label>
+            <label class="field field-full"><span>ملخص عربي</span><textarea name="excerpt_ar" rows="3"></textarea></label>
+            <label class="field field-full"><span>English excerpt</span><textarea name="excerpt_en" rows="3" dir="ltr"></textarea></label>
+            <label class="field field-full"><span>المحتوى العربي</span><textarea name="content_ar" rows="6"></textarea></label>
+            <label class="field field-full"><span>English content</span><textarea name="content_en" rows="6" dir="ltr"></textarea></label>
+            <label class="field"><span>صورة الغلاف</span><input name="cover_image" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label>
+            <label class="field"><span>رابط صورة بديل</span><input name="cover_image_url" dir="ltr"></label>
+            <div class="admin-actions field-full"><button class="btn btn-primary" type="submit">حفظ</button><button class="btn btn-secondary" type="button" data-clear-news>تفريغ</button><a class="btn btn-quiet" target="_blank" rel="noopener" data-preview-news href="../news-details.html">معاينة</a></div>
+            <p class="form-alert field-full" data-admin-alert role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <section class="admin-card"><h2>قائمة الأخبار</h2><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>العنوان</th><th>الحالة</th><th>التاريخ</th><th>إجراءات</th></tr></thead><tbody id="adminNewsTable"></tbody></table></div></section>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/translations.js" defer></script>
+  <script src="../assets/js/supabase-client.js" defer></script>
+  <script src="../assets/js/api.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+</body>
+</html>

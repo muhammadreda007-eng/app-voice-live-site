@@ -1,0 +1,24 @@
+:root {
+  --font-main: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-ink: #14213d;
+  --color-text: #24324b;
+  --color-muted: #667085;
+  --color-line: #dce4ee;
+  --color-bg: #f7fbff;
+  --color-panel: #ffffff;
+  --color-soft: #eef7f6;
+  --color-primary: #00a99d;
+  --color-primary-strong: #007f78;
+  --color-accent: #ff5a6d;
+  --color-accent-strong: #d94155;
+  --color-sun: #f2c94c;
+  --color-violet: #5855ee;
+  --shadow-soft: 0 24px 70px rgba(20, 33, 61, 0.12);
+  --shadow-card: 0 16px 44px rgba(20, 33, 61, 0.1);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --container: 1180px;
+  --section: 88px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

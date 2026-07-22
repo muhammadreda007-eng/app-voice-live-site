@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إدارة إعدادات الموقع | APP_NAME</title>
+  <meta name="description" content="إدارة إعدادات الموقع | لوحة إدارة APP_NAME">
+  <meta name="theme-color" content="#00a99d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="APP_NAME">
+  <meta property="og:title" content="إدارة إعدادات الموقع | APP_NAME">
+  <meta property="og:description" content="إدارة إعدادات الموقع | لوحة إدارة APP_NAME">
+  <meta property="og:image" content="https://example.com/assets/images/brand/social-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body data-page="admin" data-admin-page="settings" data-prefix="../" data-admin-protected="true">
+  <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
+  <div id="site-header"></div>
+  <main id="main-content" class="admin-main">
+    <section class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar"></aside>
+      <div class="admin-content" data-admin-content>
+        <div class="admin-title-row"><div><p class="eyebrow">Settings</p><h1>إدارة إعدادات الموقع</h1></div><button class="btn btn-secondary" data-logout>تسجيل الخروج</button></div>
+        <div class="setup-notice" data-admin-setup hidden></div>
+        <section class="admin-card">
+          <h2>الهوية والروابط</h2>
+          <form class="admin-form-grid" data-admin-settings-form>
+            <label class="field"><span>اسم التطبيق</span><input name="app_name" required></label>
+            <label class="field"><span>حالة التطبيق</span><select name="app_status"><option value="soon">قريبًا</option><option value="available">متاح</option></select></label>
+            <label class="field field-full"><span>الوصف المختصر</span><textarea name="short_description" rows="3"></textarea></label>
+            <label class="field"><span>Google Play</span><input name="google_play" dir="ltr"></label>
+            <label class="field"><span>App Store</span><input name="app_store" dir="ltr"></label>
+            <label class="field"><span>Huawei AppGallery</span><input name="huawei_store" dir="ltr"></label>
+            <label class="field"><span>البريد</span><input name="email" dir="ltr"></label>
+            <label class="field"><span>واتساب</span><input name="whatsapp" dir="ltr"></label>
+            <div class="admin-actions field-full"><button class="btn btn-primary" type="submit">حفظ الإعدادات</button></div>
+            <p class="form-alert field-full" data-admin-alert role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <section class="admin-card"><h2>باقات الغرف</h2><div id="settingsPackages" class="settings-packages"></div></section>
+        <section class="admin-card"><h2>الأسئلة الشائعة</h2><div id="settingsFaqs" class="settings-packages"></div></section>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/translations.js" defer></script>
+  <script src="../assets/js/supabase-client.js" defer></script>
+  <script src="../assets/js/api.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/auth.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+</body>
+</html>

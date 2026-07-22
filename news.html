@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الأخبار والتحديثات | APP_NAME</title>
+  <meta name="description" content="آخر أخبار APP_NAME وتحديثاته المنشورة.">
+  <meta name="theme-color" content="#00a99d">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="APP_NAME">
+  <meta property="og:title" content="الأخبار والتحديثات | APP_NAME">
+  <meta property="og:description" content="آخر أخبار APP_NAME وتحديثاته المنشورة.">
+  <meta property="og:image" content="https://example.com/assets/images/brand/social-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="news" data-prefix="">
+  <a class="skip-link" href="#main-content" data-i18n="common.skip">تجاوز إلى المحتوى</a>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <section class="page-hero compact-hero">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">APP_NAME</p>
+          <h1 data-i18n="news.title">الأخبار والتحديثات</h1>
+          <p class="lead" data-i18n="news.lead">الأخبار المنشورة فقط تظهر للزوار من Supabase عند تفعيل الربط.</p>
+        </div>
+        <div class="page-hero-panel reveal">
+          <span class="signal-dot"></span>
+          <strong data-i18n="common.siteScope">موقع دعائي وإداري</strong>
+          <p data-i18n="common.siteScopeText">هذا الموقع منفصل عن Backend تطبيق الشات واللايف المستقبلي.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section"><div class="container toolbar reveal"><input class="search-input" id="newsSearch" type="search" placeholder="ابحث في الأخبار" aria-label="ابحث في الأخبار"></div><div class="container news-grid" id="newsList"></div></section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/translations.js" defer></script>
+  <script src="assets/js/supabase-client.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script src="assets/js/news.js" defer></script>
+</body>
+</html>

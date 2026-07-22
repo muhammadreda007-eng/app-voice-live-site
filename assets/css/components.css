@@ -1,0 +1,37 @@
+.btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: var(--radius-sm); border: 1px solid transparent; font-weight: 800; transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), background 160ms var(--ease); }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: #fff; box-shadow: 0 16px 34px rgba(0, 169, 157, 0.22); }
+.btn-secondary { background: #fff; color: var(--color-ink); border-color: var(--color-line); }
+.btn-quiet { background: transparent; color: var(--color-primary-strong); border-color: transparent; }
+.text-link { color: var(--color-primary-strong); font-weight: 800; }
+.status-badge { display: inline-flex; align-items: center; min-height: 32px; padding-inline: 12px; border-radius: 999px; background: rgba(255, 90, 109, 0.12); color: var(--color-accent-strong); font-weight: 800; }
+.icon-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--color-line); background: #fff; color: var(--color-ink); font-size: 1.8rem; display: grid; place-items: center; box-shadow: var(--shadow-card); }
+.form-panel { display: grid; gap: 16px; }
+.form-grid, .admin-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.field { display: grid; gap: 7px; color: var(--color-ink); font-weight: 700; }
+.field-full { grid-column: 1 / -1; }
+.field input, .field textarea, .field select, .admin-filters input, .admin-filters select { width: 100%; min-height: 46px; border: 1px solid var(--color-line); border-radius: var(--radius-sm); background: #fff; color: var(--color-text); padding: 10px 12px; transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease); }
+.field textarea { resize: vertical; min-height: 120px; }
+.field input:focus, .field textarea:focus, .field select:focus, .search-input:focus { border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(0, 169, 157, 0.1); outline: none; }
+.check-row { display: flex; align-items: flex-start; gap: 10px; color: var(--color-muted); font-weight: 600; }
+.check-row input { margin-block-start: 7px; inline-size: 18px; block-size: 18px; }
+.hp-field { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.form-alert { min-height: 24px; color: var(--color-muted); font-weight: 700; }
+.form-alert.is-success { color: var(--color-primary-strong); }
+.form-alert.is-error { color: var(--color-accent-strong); }
+.form-alert.is-warning { color: #966500; }
+.accordion { display: grid; gap: 12px; }
+.accordion-item { background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
+.accordion-button { width: 100%; min-height: 58px; padding: 16px 18px; background: transparent; border: 0; color: var(--color-ink); display: flex; align-items: center; justify-content: space-between; gap: 18px; font-weight: 800; text-align: start; }
+.accordion-button::after { content: "+"; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--color-soft); color: var(--color-primary-strong); flex: 0 0 auto; }
+.accordion-button[aria-expanded="true"]::after { content: "-"; }
+.accordion-panel { display: none; padding: 0 18px 18px; color: var(--color-muted); }
+.accordion-panel.is-open { display: block; }
+.mini-card-grid article { background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: 18px; display: grid; gap: 6px; }
+.notice-box { margin-block-start: 18px; color: var(--color-muted); }
+.setup-notice { padding: 16px; border-radius: var(--radius-sm); background: #fff8e6; color: #7a5300; border: 1px solid #f3d998; margin-block-end: 18px; }
+.password-field { position: relative; }
+.password-field input { padding-inline-end: 82px; }
+.ghost-toggle { position: absolute; inset-inline-end: 8px; inset-block-end: 7px; border: 0; background: var(--color-soft); color: var(--color-primary-strong); border-radius: 7px; min-height: 32px; padding-inline: 10px; font-weight: 800; }
+html[dir="ltr"] .password-field input { padding-inline-end: 12px; padding-inline-start: 82px; }
+html[dir="ltr"] .ghost-toggle { inset-inline-end: auto; inset-inline-start: 8px; }

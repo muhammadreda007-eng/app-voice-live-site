@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Promo Video</title>
+  <desc id="desc">ضع الفيديو الدعائي هنا</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#14213d"/>
+      <stop offset="0.55" stop-color="#5855ee"/>
+      <stop offset="1" stop-color="#ff5a6d"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="42" fill="url(#g)"/>
+  <rect x="56" y="56" width="1168" height="608" rx="32" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.35)"/>
+  <text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="#fff">Promo Video</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#f7fbff">ضع الفيديو الدعائي هنا</text>
+</svg>
