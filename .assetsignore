@@ -1,0 +1,7 @@
+.git
+.github
+.assetsignore
+wrangler.jsonc
+supabase
+*.md
+node_modules
