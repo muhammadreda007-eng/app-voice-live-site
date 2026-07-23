@@ -9,7 +9,7 @@
       shortDescriptionAr: "منصة اجتماعية مستقبلية لغرف الصوت والفيديو والبث المباشر.",
       shortDescriptionEn: "A future social platform for voice rooms, video chat, and live streams.",
       appStatus: "SOON - قريبًا",
-      developerName: "اسم المطور: سيزر إيجينسي"
+      developerName: "سـيـزر إيجينسي"
     },
     theme: {
       primary: "#00a99d",
@@ -21,8 +21,8 @@
       anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eHJlZ25kdmZtdmtzaHJleHpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MTY2MzUsImV4cCI6MjEwMDI5MjYzNX0.g6KH5fKtcWrHXTYxPo_ohgMS2uxnR2chDd1pknfVgNc"
     },
     contact: {
-      email: "hello@example.com",
-      whatsapp: "+201000000000"
+      email: "Sohbetna@gmail.com",
+      whatsapp: "+201124724749"
     },
     links: {
       googlePlay: "",

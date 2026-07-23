@@ -7,23 +7,37 @@
     return window.AppSupabase.getClient();
   }
 
+  function publicClient() {
+    return window.AppSupabase.getPublicClient();
+  }
+
+  async function fetchPublicSettings() {
+    if (!window.AppSupabase.isConfigured()) return [];
+    const { data, error } = await publicClient()
+      .from("site_settings")
+      .select("setting_key,setting_value")
+      .eq("is_public", true);
+    if (error) throw error;
+    return data || [];
+  }
+
   async function fetchRoomPackages() {
     if (!window.AppSupabase.isConfigured()) return fallback.roomPackages || [];
-    const { data, error } = await client().from("room_packages").select("*").eq("is_active", true).order("sort_order", { ascending: true });
+    const { data, error } = await publicClient().from("room_packages").select("*").eq("is_active", true).order("sort_order", { ascending: true });
     if (error) throw error;
     return data || [];
   }
 
   async function fetchFaqs() {
     if (!window.AppSupabase.isConfigured()) return fallback.faqs || [];
-    const { data, error } = await client().from("faqs").select("*").eq("is_active", true).order("sort_order", { ascending: true });
+    const { data, error } = await publicClient().from("faqs").select("*").eq("is_active", true).order("sort_order", { ascending: true });
     if (error) throw error;
     return data || [];
   }
 
   async function fetchPublishedNews(limit) {
     if (!window.AppSupabase.isConfigured()) return [];
-    let query = client().from("news").select("id,title_ar,title_en,slug,excerpt_ar,excerpt_en,cover_image_url,published_at").eq("status", "published").order("published_at", { ascending: false });
+    let query = publicClient().from("news").select("id,title_ar,title_en,slug,excerpt_ar,excerpt_en,cover_image_url,published_at").eq("status", "published").order("published_at", { ascending: false });
     if (limit) query = query.limit(limit);
     const { data, error } = await query;
     if (error) throw error;
@@ -32,7 +46,7 @@
 
   async function fetchNewsBySlug(slug) {
     if (!window.AppSupabase.isConfigured()) return null;
-    const { data, error } = await client().from("news").select("*").eq("status", "published").eq("slug", slug).maybeSingle();
+    const { data, error } = await publicClient().from("news").select("*").eq("status", "published").eq("slug", slug).maybeSingle();
     if (error) throw error;
     return data;
   }
@@ -105,6 +119,7 @@
   }
 
   window.AppApi = {
+    fetchPublicSettings,
     fetchRoomPackages,
     fetchFaqs,
     fetchPublishedNews,

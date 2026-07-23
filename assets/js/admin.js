@@ -243,6 +243,7 @@
     if (form) {
       form.elements.app_name.value = config.brand?.appName || "";
       form.elements.app_status.value = config.brand?.appStatus || "soon";
+      form.elements.developer_name.value = config.brand?.developerName || "";
       form.elements.short_description.value = config.brand?.shortDescriptionAr || "";
       form.elements.google_play.value = config.links?.googlePlay || "";
       form.elements.app_store.value = config.links?.appStore || "";

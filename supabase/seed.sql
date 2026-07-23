@@ -4,10 +4,13 @@ insert into public.site_settings (setting_key, setting_value, is_public)
 values
   ('app_name', '"SOHBETNA | صٌحبتنا"'::jsonb, true),
   ('app_status', '"soon"'::jsonb, true),
+  ('developer_name', '"سـيـزر إيجينسي"'::jsonb, true),
+  ('short_description', '"منصة اجتماعية مستقبلية لغرف الصوت والفيديو والبث المباشر."'::jsonb, true),
   ('short_description_ar', '"منصة اجتماعية مستقبلية لغرف الصوت والفيديو والبث المباشر."'::jsonb, true),
   ('short_description_en', '"A future social platform for voice rooms, video, and live streaming."'::jsonb, true),
-  ('support_email', '"hello@example.com"'::jsonb, true),
-  ('whatsapp', '"+201000000000"'::jsonb, true)
+  ('email', '"Sohbetna@gmail.com"'::jsonb, true),
+  ('support_email', '"Sohbetna@gmail.com"'::jsonb, true),
+  ('whatsapp', '"+201124724749"'::jsonb, true)
 on conflict (setting_key) do update set setting_value = excluded.setting_value, is_public = excluded.is_public;
 
 insert into public.room_packages (package_name_ar, package_name_en, package_type, coins, price, currency, duration_days, features, is_active, sort_order)

@@ -2,6 +2,7 @@
   "use strict";
 
   const config = window.AppConfig || {};
+  const defaultBrandName = config.brand?.appName || "SOHBETNA | صٌحبتنا";
   const translations = window.AppTranslations || {};
   const body = document.body;
   const prefix = body.dataset.prefix || "";
@@ -32,6 +33,28 @@
 
   function setText(selector, text) {
     document.querySelectorAll(selector).forEach((el) => { el.textContent = text; });
+  }
+
+  async function hydratePublicSettings() {
+    if (!window.AppApi?.fetchPublicSettings) return;
+    try {
+      const rows = await window.AppApi.fetchPublicSettings();
+      const settings = Object.fromEntries(rows.map((row) => [row.setting_key, row.setting_value]));
+      config.brand = config.brand || {};
+      config.links = config.links || {};
+      config.contact = config.contact || {};
+      if (settings.app_name) config.brand.appName = String(settings.app_name);
+      if (settings.app_status) config.brand.appStatus = String(settings.app_status);
+      if (settings.developer_name) config.brand.developerName = String(settings.developer_name);
+      if (settings.short_description) config.brand.shortDescriptionAr = String(settings.short_description);
+      if (settings.google_play) config.links.googlePlay = String(settings.google_play);
+      if (settings.app_store) config.links.appStore = String(settings.app_store);
+      if (settings.huawei_store) config.links.huawei = String(settings.huawei_store);
+      if (settings.email) config.contact.email = String(settings.email);
+      if (settings.whatsapp) config.contact.whatsapp = String(settings.whatsapp);
+    } catch (_) {
+      // Keep the local configuration as a reliable fallback.
+    }
   }
 
   function renderHeader() {
@@ -131,7 +154,7 @@
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
     document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const value = t(el.dataset.i18n).replaceAll("SOHBETNA | صٌحبتنا", config.brand?.appName || "SOHBETNA | صٌحبتنا");
+      const value = t(el.dataset.i18n).replaceAll(defaultBrandName, config.brand?.appName || defaultBrandName);
       el.textContent = value;
     });
     document.querySelectorAll("[data-app-status]").forEach((el) => {
@@ -292,7 +315,8 @@
     }
   }
 
-  function bootstrap() {
+  async function bootstrap() {
+    await hydratePublicSettings();
     renderHeader();
     renderFooter();
     applyTranslations();
