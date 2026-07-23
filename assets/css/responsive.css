@@ -4,7 +4,7 @@
   .hero-visual { min-height: auto; }
   .phone-shell { min-height: 560px; }
 }
-@media (max-width: 920px) {
+@media (max-width: 1180px) {
   .mobile-toggle { display: inline-flex; }
   .nav-wrap { position: fixed; inset: 74px 0 auto 0; background: rgba(247, 251, 255, 0.98); border-bottom: 1px solid var(--color-line); transform: translateY(-120%); transition: transform 180ms var(--ease); padding: 18px; box-shadow: var(--shadow-card); }
   .nav-wrap.is-open { transform: translateY(0); }
