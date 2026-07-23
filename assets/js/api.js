@@ -39,8 +39,17 @@
 
   async function insertPublic(table, payload) {
     if (!window.AppSupabase.isConfigured()) throw new Error("SUPABASE_NOT_CONFIGURED");
-    const { error } = await client().from(table).insert(payload);
-    if (error) throw error;
+    const { error } = await window.AppSupabase.getPublicClient().from(table).insert(payload);
+    if (error) {
+      console.error("Public form submission failed", {
+        table,
+        code: error.code,
+        message: error.message,
+        details: error.details,
+        hint: error.hint
+      });
+      throw error;
+    }
     return true;
   }
 
