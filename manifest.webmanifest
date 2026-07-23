@@ -1,6 +1,6 @@
 {
-  "name": "APP_NAME",
-  "short_name": "APP_NAME",
+  "name": "SOHBETNA | صٌحبتنا",
+  "short_name": "SOHBETNA",
   "description": "موقع رسمي لتطبيق شات صوتي ومرئي ولايفات.",
   "start_url": "/",
   "display": "standalone",

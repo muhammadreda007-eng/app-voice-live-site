@@ -2,7 +2,7 @@
 
 insert into public.site_settings (setting_key, setting_value, is_public)
 values
-  ('app_name', '"APP_NAME"'::jsonb, true),
+  ('app_name', '"SOHBETNA | صٌحبتنا"'::jsonb, true),
   ('app_status', '"soon"'::jsonb, true),
   ('short_description_ar', '"منصة اجتماعية مستقبلية لغرف الصوت والفيديو والبث المباشر."'::jsonb, true),
   ('short_description_en', '"A future social platform for voice rooms, video, and live streaming."'::jsonb, true),

@@ -1,4 +1,4 @@
--- APP_NAME Supabase schema
+-- SOHBETNA | صٌحبتنا Supabase schema
 -- شغل هذا الملف داخل Supabase SQL Editor بعد إنشاء المشروع.
 
 create extension if not exists pgcrypto;

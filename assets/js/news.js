@@ -86,7 +86,7 @@
       }
       nodes.push(content);
       mount.replaceChildren(...nodes);
-      document.title = title.textContent + " | APP_NAME";
+      document.title = title.textContent + " | SOHBETNA | صٌحبتنا";
     } catch (_) {
       mount.replaceChildren(el("p", "empty-state", "تعذر تحميل تفاصيل الخبر."));
     }

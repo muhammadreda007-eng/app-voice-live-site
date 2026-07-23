@@ -41,10 +41,10 @@
     const inner = node("div", "container header-inner");
     const brand = node("a", "brand");
     brand.href = pageHref("index.html");
-    brand.setAttribute("aria-label", config.brand?.appName || "APP_NAME");
-    const mark = node("span", "brand-mark", "AP");
+    brand.setAttribute("aria-label", config.brand?.appName || "SOHBETNA | صٌحبتنا");
+    const mark = node("span", "brand-mark", "S");
     const brandText = node("span", "brand-text");
-    const strong = node("strong", "", config.brand?.appName || "APP_NAME");
+    const strong = node("strong", "", config.brand?.appName || "SOHBETNA | صٌحبتنا");
     const small = node("small", "", lang === "en" ? config.brand?.taglineEn : config.brand?.taglineAr);
     brandText.append(strong, small);
     brand.append(mark, brandText);
@@ -96,7 +96,7 @@
     const container = node("div", "container");
     const grid = node("div", "footer-grid");
     const brandCol = node("div");
-    brandCol.append(node("h2", "", config.brand?.appName || "APP_NAME"));
+    brandCol.append(node("h2", "", config.brand?.appName || "SOHBETNA | صٌحبتنا"));
     brandCol.append(node("p", "", lang === "en" ? config.brand?.shortDescriptionEn : config.brand?.shortDescriptionAr));
     grid.append(brandCol);
     const groups = [
@@ -120,7 +120,7 @@
       grid.append(col);
     });
     const bottom = node("div", "footer-bottom");
-    bottom.append(node("p", "", "© " + new Date().getFullYear() + " " + (config.brand?.appName || "APP_NAME") + ". " + (lang === "en" ? "All rights reserved." : "كل الحقوق محفوظة.")));
+    bottom.append(node("p", "", "© " + new Date().getFullYear() + " " + (config.brand?.appName || "SOHBETNA | صٌحبتنا") + ". " + (lang === "en" ? "All rights reserved." : "كل الحقوق محفوظة.")));
     bottom.append(node("p", "", (lang === "en" ? "Developer: " : "المطور: ") + (config.brand?.developerName || "")));
     container.append(grid, bottom);
     footer.append(container);
@@ -131,7 +131,7 @@
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
     document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const value = t(el.dataset.i18n).replaceAll("APP_NAME", config.brand?.appName || "APP_NAME");
+      const value = t(el.dataset.i18n).replaceAll("SOHBETNA | صٌحبتنا", config.brand?.appName || "SOHBETNA | صٌحبتنا");
       el.textContent = value;
     });
     document.querySelectorAll("[data-app-status]").forEach((el) => {

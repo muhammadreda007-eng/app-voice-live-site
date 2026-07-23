@@ -1,4 +1,4 @@
-# APP_NAME Website
+# SOHBETNA | صٌحبتنا Website
 
 موقع Static كامل لتطبيق شات صوتي ومرئي ولايفات. مبني بـ HTML5 وCSS3 وVanilla JavaScript فقط، ومجهز للنشر على Cloudflare Pages والربط مع Supabase.
 
